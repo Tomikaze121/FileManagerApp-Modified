@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>File Manager</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">File Name</ion-label>
+    <ion-input [(ngModel)]="fileName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">File Content</ion-label>
+    <ion-textarea [(ngModel)]="fileContent"></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" (click)="saveOrUpdateFile()">SAVE / UPDATE</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let file of fileList" (click)="openActionSheet(file)">
+      <ion-label>{{ file }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>🏠 Home</ion-button>
+        <ion-button>📂 Files</ion-button>
+        <ion-button>⚙️ Settings</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
